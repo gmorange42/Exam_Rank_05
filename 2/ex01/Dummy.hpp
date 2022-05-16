@@ -1,0 +1,16 @@
+#ifndef DUMMY_HPP
+#define DUMMY_HPP
+
+#include <iostream>
+#include "ATarget.hpp"
+
+class	Dummy : public ATarget
+{
+	public:
+		Dummy(void);
+		virtual Dummy*		clone(void);
+	private:
+		std::string	type;
+};
+
+#endif
