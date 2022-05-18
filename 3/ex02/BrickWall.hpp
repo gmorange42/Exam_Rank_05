@@ -1,0 +1,17 @@
+#ifndef BRICKWALL_HPP
+#define BRICKWALL_HPP
+
+#include <iostream>
+#include "ATarget.hpp"
+
+class BrickWall : public ATarget
+{
+	public:
+		BrickWall(void);
+		virtual	~BrickWall(void);
+		BrickWall*		clone(void);
+	private:
+		std::string	type;
+};
+
+#endif
