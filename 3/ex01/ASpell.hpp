@@ -16,7 +16,7 @@ class ASpell
 		virtual	~ASpell(void) = 0;
 		std::string	getName(void) const;
 		std::string	getEffects(void) const;
-		virtual ASpell*		clone(void) = 0;
+		virtual ASpell*		clone(void) const = 0;
 		void		launch(ATarget const & target) const;
 	private:
 		std::string	name;

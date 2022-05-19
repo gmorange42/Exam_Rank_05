@@ -10,6 +10,7 @@ int main()
   Dummy bob;
   Fwoosh* fwoosh = new Fwoosh();
 
+
   richard.learnSpell(fwoosh);
 
   richard.introduce();
