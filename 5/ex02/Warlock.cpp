@@ -42,7 +42,11 @@ void		Warlock::forgetSpell(std::string spell_name)
 
 void		Warlock::launchSpell(std::string spell_name, ATarget const & target)
 {
+	ATarget const* test = NULL;
+	if (test == &target)
+		return;
 	ASpell* temp = this->book.createSpell(spell_name);
-			temp->launch(target);
+	if (temp)
+		temp->launch(target);
 }
 
