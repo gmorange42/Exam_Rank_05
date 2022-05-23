@@ -10,14 +10,14 @@ class	ASpell
 {
 	public:
 		ASpell(void);
-		ASpell(std::string name, std::string effects);
 		ASpell(ASpell const & rhs);
 		ASpell&	operator=(ASpell const & rhs);
+		ASpell(std::string name, std::string effects);
 		virtual ~ASpell(void);
-		std::string const	getName(void) const;
-		std::string const	getEffects(void) const;
-		void		launch(ATarget const & target);
-		virtual ASpell&		clone(void) = 0;
+		std::string	getName(void) const;
+		std::string	getEffects(void) const;
+		virtual ASpell*		clone(void) const = 0;
+		void		launch(ATarget const & target) const;
 	protected:
 		std::string	_name;
 		std::string	_effects;

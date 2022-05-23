@@ -8,10 +8,10 @@ class	Warlock
 	public:
 		Warlock(std::string name, std::string title);
 		~Warlock(void);
-		std::string	getName(void) const;
-		std::string	getTitle(void) const;
-		void		setTitle(std::string const & title);
-		void		introduce(void) const;
+		std::string const &	getName(void) const;
+		std::string const &	getTitle(void) const;
+		void			setTitle(std::string const & new_title);
+		void			introduce(void) const;
 	private:
 		Warlock(void);
 		Warlock(Warlock const & rhs);
