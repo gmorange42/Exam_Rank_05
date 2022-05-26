@@ -18,8 +18,19 @@ SpellBook::~SpellBook(void)
 
 void			SpellBook::learnSpell(ASpell * spell)
 {
-	if (spell)
-		this->_spells.insert(spell->clone());
+	if (!spell)
+		return ;
+
+	std::set<ASpell*>::iterator it = this->_spells.begin();
+	std::set<ASpell*>::iterator ite = this->_spells.end();
+
+	while (it != ite)
+	{
+		if ((*it)->getName() == spell->getName())
+			return ;
+		++it;
+	}
+	this->_spells.insert(spell->clone());
 }
 
 void			SpellBook::forgetSpell(std::string const & spell_name)
