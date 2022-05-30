@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cc                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/17 00:35:12 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/02/13 16:48:51 by ncolomer         ###   ########.fr       */
+/*   Updated: 2022/05/30 14:00:08 by gmorange         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int main(void)
 	richard.forgetSpell("Fwoosh");
 	richard.forgetSpell("Fwoosh");
 	richard.learnSpell(air);
+	richard.learnSpell(air);
+	richard.forgetSpell("Fwoosh");
 
 	std::cout << "--- Targets:\n";
 	Dummy *hay = new Dummy();
@@ -45,30 +47,35 @@ int main(void)
 
 	std::cout << "--- Spells (all):\n";
 
-	richard.launchSpell("Fwoosh", *tarGen.createTarget("Dummy Practice"));
-	richard.launchSpell("Fireball", *tarGen.createTarget("BrickWall Practice"));
-	richard.launchSpell("Polymorph", *tarGen.createTarget("Dummy Practice"));
+	richard.launchSpell("Fwoosh", *tarGen.createTarget("Target Practice Dummy"));
+	richard.launchSpell("Fireball", *tarGen.createTarget("Inconspicuous Red-brick Wall"));
+	richard.launchSpell("Polymorph", *tarGen.createTarget("Target Practice Dummy"));
 
 	std::cout << "--- Forgotten \"Fwoosh\":\n";
 
 	richard.forgetSpell("Fwoosh");
-	richard.launchSpell("Fwoosh", *tarGen.createTarget("Dummy Practice"));
-	richard.launchSpell("Fireball", *tarGen.createTarget("BrickWall Practice"));
-	richard.launchSpell("Polymorph", *tarGen.createTarget("Dummy Practice"));
+	richard.launchSpell("Fwoosh", *tarGen.createTarget("Target Practice Dummy"));
+	richard.launchSpell("Fireball", *tarGen.createTarget("Inconspicuous Red-brick Wall"));
+	richard.launchSpell("Polymorph", *tarGen.createTarget("Target Practice Dummy"));
 
 	std::cout << "--- Spells (all):\n";
 
 	richard.learnSpell(air);
-	richard.launchSpell("Fwoosh", *tarGen.createTarget("Dummy Practice"));
-	richard.launchSpell("Fireball", *tarGen.createTarget("BrickWall Practice"));
-	richard.launchSpell("Polymorph", *tarGen.createTarget("Dummy Practice"));
+	richard.launchSpell("Fwoosh", *tarGen.createTarget("Target Practice Dummy"));
+	richard.launchSpell("Fireball", *tarGen.createTarget("Inconspicuous Red-brick Wall"));
+	richard.launchSpell("Polymorph", *tarGen.createTarget("Target Practice Dummy"));
 
 	std::cout << "--- Non-existant spell:\n";
 
-	richard.launchSpell("ACID", *tarGen.createTarget("BrickWall Practice"));
+	richard.launchSpell("ACID", *tarGen.createTarget("Inconspicuous Red-brick Wall"));
 	richard.forgetSpell("ACID");
-	richard.launchSpell("ACID", *tarGen.createTarget("Dummy Practice"));
+	richard.launchSpell("ACID", *tarGen.createTarget("Target Practice Dummy"));
 
 	std::cout << "--- Destructors:\n";
+	delete water;
+	delete fire;
+	delete air;
+	delete hay;
+	delete earth;
 	return (0);
 }
